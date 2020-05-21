@@ -32,19 +32,25 @@ const productData = JSON.parse(data);
 
 const server = http.createServer((req, res) => {
     const pathName =req.url;
+
+    //overview page
     if (pathName === '/' || pathName === '/overview') {
         res.end('This is the OVERVIEW');
+
+    //product page    
     } else if (pathName === '/product'){
         res.end('This is the PRODUCT');
+
+    //apt
     } else if (pathName === '/api'){
 
         res.writeHead(200, { 'Content-type': 'application/json'})
         res.end(data);
 
-        
+    //not found   
     } else {
         res.writeHead(404, {
-            'Content-type': 'text/html'
+            'Content-type': 'text/html'2
 
         });
         res.end('<h1>Page not found!</h1>');
